@@ -13,3 +13,14 @@ cancella.addEventListener("click", () => {
 });
 
 savedNome.innerText += localStorage.getItem("name");
+
+let contatore = sessionStorage.getItem("contatore")
+  ? parseInt(sessionStorage.getItem("contatore"))
+  : 0;
+
+function aggiornaContatore() {
+  contatore++;
+  document.getElementById("contatore").innerText = contatore;
+  sessionStorage.setItem("contatore", contatore);
+}
+setInterval(aggiornaContatore, 1000);
